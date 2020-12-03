@@ -59,8 +59,8 @@ class App extends Component {
         <div className="col-md-12 text-center mt-3 input" >
           <input value={this.state.name} onChange={this.inputHandler} className="" />
           <br />
-          <button className="btn btn-primary mt-3" onClick={this.onSearch}>Search</button>
-          {this.state.isSearch ? <button className="btn btn-primary mt-3" onClick={this.resetSearch}>Reset</button> : null}
+          <button className="btn btn-primary mt-3 w_50" onClick={this.onSearch}>Search</button>
+          {this.state.isSearch ? <button className="btn btn-primary mt-3 ml-3 w_50" onClick={this.resetSearch}>Reset</button> : null}
         </div>
         <Profile
           isLoading={this.state.isLoading}
