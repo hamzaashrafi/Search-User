@@ -34,13 +34,22 @@ class App extends Component {
             repo: response.html_url,
             email: response.email || "",
           };
-          this.setState({ user: obj });
+          this.setState({ user: obj, isSearch: true });
         }
       })
       .catch((err) => {
         console.log(err);
         this.setState({ isLoading: false });
       });
+  };
+
+  resetSearch = () => {
+    this.setState({
+      name: "",
+      isLoading: false,
+      isSearch: false,
+      user: {}
+    });
   };
 
 
@@ -51,6 +60,7 @@ class App extends Component {
           <input value={this.state.name} onChange={this.inputHandler} className="" />
           <br />
           <button className="btn btn-primary mt-3" onClick={this.onSearch}>Search</button>
+          {this.state.isSearch ? <button className="btn btn-primary mt-3" onClick={this.resetSearch}>Reset</button> : null}
         </div>
         <Profile
           isLoading={this.state.isLoading}
