@@ -18,6 +18,7 @@ class App extends Component {
   };
 
   onSearch = () => {
+    if (!this.state.name) return;
     this.setState({ isLoading: true });
     const urls = `https://api.github.com/users/${this.state.name}`;
     fetch(urls)
